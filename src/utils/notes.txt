@@ -1,0 +1,7 @@
+Docker file - arquivo declarativo para criação do container
+
+https://hub.docker.com/ - images publicas do docker
+
+Base image - docker básico com uma imagem.
+
+Explicação o que é o docker https://docs.docker.com/get-started/docker-overview/

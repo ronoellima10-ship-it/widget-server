@@ -1,0 +1,29 @@
+1) docker -v => indica a versão instalada do docker no terminal
+
+2) docker image ls => lista as images
+
+3) docker => mostra alguns comandos que podem ser executados no terminal 
+
+4) docker build -t widget-server:v1 . => roda a instalação de uma imagem do docker selecionada no site hub.docker 
+
+5) docker run -p 3000:3333 widget-server:v1 => comando para rodar uma imagem docker já construida (docker run -p número da porta 3000:3333 nome da imagem widget-server:v1)
+
+6) docker ps => conseguimos visualizar as imagens docker rodando no momento.
+
+7) docker log ID => consegue ver os logs do docker 
+
+8) docker stop ID => para de rodar a imagem docker 
+
+9) docker start => realiza o star na imagem docker criada.
+
+10) docker container ls => mostrar os containers que estão rodando no momento
+
+11) docker ps -a
+
+12) docker history image-name (widget-server:v1)
+
+13) docker tag widget-server:v1 ronoellima/widget-server:v1  => Nomeando a imagem do docker criada no diretório da máquina para o repositório do hub.
+
+14) docker push widget-server:v1 ronoellima/widget-server:v1 => comando para enviar o repositório para o github
+
+15) docker pull widget-server:v1 ronoellima/widget-server:v1 => comando para enviar o repositório para o github
