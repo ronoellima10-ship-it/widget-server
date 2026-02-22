@@ -1,0 +1,24 @@
+# @format
+
+name: widget-server pipe DockerHub
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  Build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - name: Login to DockerHub
+        id: login-docker-hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
