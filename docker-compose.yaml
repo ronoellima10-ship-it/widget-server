@@ -1,0 +1,44 @@
+services:
+
+  db:
+    image: postgres:latest
+    volumes:
+      - db:/var/lib/postgresql/data
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=widget_server
+
+    
+    networks:
+      - widget
+      - db
+    
+  app:
+    build: .
+    depends_on:
+      - db
+    container_name: widget-server
+    ports:
+      - 3000:3333
+    environment:
+      - CLOUDFLARE_ACCESS_KEY_ID=$CLOUDFLARE_ACCESS_KEY_ID
+      - CLOUDFLARE_SECRET_ACCESS_KEY=$CLOUDFLARE_SECRET_ACCESS_KEY
+      - CLOUDFLARE_BUCKET=$CLOUDFLARE_BUCKET
+      - CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID
+      - CLOUDFLARE_PUBLIC_URL=$CLOUDFLARE_PUBLIC_URL
+      
+    networks:
+      - widget
+
+volumes:
+    db:
+
+networks:
+  widget:
+    driver: bridge
+  db:
+    driver: bridge

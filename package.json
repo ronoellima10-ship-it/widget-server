@@ -22,6 +22,7 @@
     "@fastify/cors": "10.0.1",
     "@fastify/multipart": "9.0.1",
     "axios": "^1.13.5",
+    "docker-compose": "^1.3.1",
     "fastify": "5.1.0",
     "pnpm": "^10.30.0",
     "tsup": "^8.5.1",

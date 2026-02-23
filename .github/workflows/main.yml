@@ -16,6 +16,34 @@ jobs: # A workflow run is made up of one or more jobs that can run sequentially 
       - name: Checkout # The name of the step is "Checkout"
         #uses: actions/checkout@v4 # This step uses the "actions/checkout" action to check out the repository's code
         uses: docker/build-push-action@v6
+
+      - name: Configure Node
+        id: configure-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        id: install-pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: Install dependencies
+        id: install-dependencies
+        run: pnpm install
+
+      - name: Login to ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Generate tag
+        id: generate-tag
+        run: echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build and push
+        id: build-push
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true

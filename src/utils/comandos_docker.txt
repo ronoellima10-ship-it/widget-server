@@ -27,3 +27,13 @@
 14) docker push widget-server:v1 ronoellima/widget-server:v1 => comando para enviar o repositório para o github
 
 15) docker pull widget-server:v1 ronoellima/widget-server:v1 => comando para enviar o repositório para o github
+
+16) docker volume ls => cria um volume no repositorio do docker
+
+17) docker-compose up -d
+
+18) docker-compose down
+
+19) docker-compose stop 
+
+20) docker network ls
